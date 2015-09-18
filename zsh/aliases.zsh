@@ -12,6 +12,27 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+# Ansible
+alias ans="ansible-playbook"
+
+alias lss='ls++'
+
+
+# TMUX
+#if which tmux >/dev/null 2>&1; then
+#  ###if not inside a tmux session, and if no session is started, start a new session
+#  test -z "$TMUX" && (tmux attach || tmux )
+#fi
+
+# osx disk util
+alias dul='diskutil list'
+alias duu='diskutil unmountDisk'
+
+# dd command
+# TODO: make plugin function
+#dd if=/dev/zero of=/dev/sdX bs=32M
+
+
 # YADR support
 alias yav='yadr vim-add-plugin'
 alias ydv='yadr vim-delete-plugin'
@@ -30,6 +51,9 @@ alias cls='clear;ls'
 
 # Show human friendly numbers and colors
 alias df='df -h'
+alias ll='ls -alGh'
+alias ls='ls -Gh'
+alias lss='ls++'
 alias du='du -h -d 2'
 
 if [[ $platform == 'linux' ]]; then
@@ -118,6 +142,11 @@ alias gps='git push'
 alias gpsh='git push -u origin `git rev-parse --abbrev-ref HEAD`'
 alias gnb='git nb' # new branch aka checkout -b
 alias grs='git reset'
+
+alias grm='git rm'
+
+alias grh='git reset HEAD'
+alias grhh='git reset HEAD --hard'
 alias grsh='git reset --hard'
 alias gcln='git clean'
 alias gclndf='git clean -df'
@@ -202,3 +231,45 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
+
+alias zre='source ~/.zshrc'
+alias vi='vim'
+alias hm='cd ~/'
+alias cdd="cd ../"
+
+### Git
+alias gvdif="git diff git-svn HEAD --name-only"
+
+# logging
+# search for first commit by eric
+function b-creation() {
+   git log --date=local "$@" --author=eric
+}
+
+# unmerged between branches
+function umerged() {
+  git log -v --author=alex "$@"
+}
+
+# Bundler
+
+function cap() {
+  bundle exec cap "$@"
+}
+
+# update 'locate' command database
+alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+# SSH
+alias sshc="vim ~/.ssh/config"
+
+
+# Vagrant
+alias vau="vagrant up"
+alias vas="vagrant suspend"
+alias var="vagrant reload"
+alias vad="vagrant destroy"
+alias vah="vagrant halt"
+alias vsh="vagrant ssh"
+alias vap="vagrant pristine"
+

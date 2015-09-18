@@ -125,3 +125,6 @@
   enabled = true
 [include]
   path = .gitconfig.user
+[user]
+	name = Alex Aloia
+	email = tripl3inf@gmail.com
